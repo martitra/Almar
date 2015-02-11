@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %} - Inicio {% endblock %}
+
+{% block contento %}
+	{% if user.is_staff %}
+        <div class="container">
+            <!-- Example row of columns -->
+            <div class="row">
+                <div class="span3">
+                    <h2>{% trans "Libros" %}</h2>
+                    <p><a class="btn" href="admin/biblio/libro">{% trans "Administrar libros &raquo;" %}</a></p>
+                    <p><a class="btn" href="admin/biblio/libro/add">{% trans "Anadir libro &raquo;" %}</a></p>
+                </div>
+                <div class="span3">
+                    <h2>{% trans "Autores" %}</h2>
+                    <p><a class="btn" href="admin/biblio/autor/">{% trans "Administrar autores &raquo;" %}</a></p>
+                    <p><a class="btn" href="admin/biblio/autor/add/">{% trans "Anadir autor &raquo;" %}</a></p>
+               </div>
+                <div class="span3">
+                    <h2>{% trans "Prestamos" %}</h2>
+                    <p><a class="btn" href="admin/biblio/prestamo/">{% trans "Administrar prestamo &raquo;" %}</a></p>
+                    <p><a class="btn" href="admin/biblio/prestamo/add/">{% trans "Anadir prestamo &raquo;" %}</a></p>
+                </div>
+                <div class="span3">
+                    <h2>{% trans "Usuarios" %}</h2>
+                    <p><a class="btn" href="/admin/auth/user/">{% trans "Administrar usuarios &raquo;" %}</a></p>
+                    <p><a class="btn" href="admin/auth/user/add/">{% trans "Anadir usuario &raquo;" %}</a></p>
+                </div>
+            </div>
+         </div>
+	{% endif %}
+	{% if not user.is_staff %}
+		<div class="container">
+            <!-- Example row of columns -->
+            <div class="row">
+                <div class="span3">
+                    <h2>{% trans "Libros" %}</h2>
+                    <p><a class="btn" href={% url 'libros' %}>{% trans "Todos los libros &raquo;" %}</a></p>
+                </div>
+                <div class="span3">
+                    <h2>{% trans "Autores" %}</h2>
+                    <p><a class="btn" href={% url 'autores' %}>{% trans "Todos los autores &raquo;" %}</a></p>
+                </div>
+            {% if user.is_authenticated %}
+         	<div class="span3">
+                    <h2>{% trans "Mis prestamos" %}</h2>
+                    <p><a class="btn" href={% url 'prestamos' %}>{% trans "Todos mis prestamos &raquo;" %}</a></p>
+                </div>
+            </div>
+            {% endif %}
+         </div>
+	{% endif %}
+{% endblock contento %}

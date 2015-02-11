@@ -1,0 +1,191 @@
+{% load admin_static %}<!DOCTYPE html>
+{% load i18n %} 
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="{{ LANGUAGE_CODE|default:"Es-es" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}> <!--<![endif]-->
+
+<head>
+        <meta charset="ISO-8859-3">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{% block title %}{%trans "Administracion" %}{% endblock %}</title>
+        
+        {% load staticfiles %}
+        
+        <!-- Bootstrap -->
+        <link rel="stylesheet"  type="text/css" href="{% static "css/bootstrap.min.css" %}">
+        <style>
+            body {
+                padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+                padding-bottom: 40px;
+            }
+        </style>
+        <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-responsive.min.css" %}">
+        <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+        
+        <link rel="stylesheet" type="text/css" href="{% static "admin/css/base.css" %}" />
+        {% block extrastyle %}{% endblock %}
+        <!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{% block stylesheet_ie %}{% static "admin/css/ie.css" %}{% endblock %}" /><![endif]-->
+        {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
+        <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
+        
+        <script src="{% static "SGC/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js" %}"></script>
+		
+        {% block extrahead %}{% endblock %}
+        {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+
+</head>
+
+<body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+        
+  <!-- Header -->
+  <header>
+    
+	<nav class="navbar navbar-inverse navbar-fixed-top_" id="navigation">
+	   <div class="navbar-inner">
+	       <div class="container_">
+			{% if user.is_staff %}
+	          <a class="brand" href="/">{%trans "Administracion" %}</a>
+	        {% endif %}
+	        {% if not user.is_staff %}
+	        	<a class="brand" href="/">{%trans "Almar" %}</a>
+	        {% endif %}
+				{% if user.is_active %}
+                    <div id="user-tools">
+                        <span>
+                            <!-- {% trans 'Welcome,' %} -->
+                            <strong>{% filter force_escape %}{% firstof user.get_short_name user.get_username %}{% endfilter %}</strong>.
+                        <span>
+                        {% block userlinks %}
+                            {% url 'django-admindocs-docroot' as docsroot %}
+                            {% if docsroot %}
+                                <!-- <a href="{{ docsroot }}">{% trans 'Documentation' %}</a> / -->
+                            {% endif %}
+                            {% if user.has_usable_password %}
+                            <!-- <a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a> / -->
+                            {% endif %}
+                            <a href="{% url 'logout' %}">{% trans 'Log out' %}</a>
+                        {% endblock %}
+                    
+                      
+					</div>
+                 {% endif %}
+                 {% if not user.is_active %}
+                    <li class="active" style="float:right;"><a href="{% url 'login' %}">{% trans 'Log in' %}</a></li>
+                 {% endif %}
+			</div>			
+			<div class="menu">
+	          <div> <!-- Menu -->
+				  
+				  {% if user.is_active %}
+				  <ul class="nav">
+					<!--
+					Filtrado del menu segun el perfil de cada usuario, si usu=active solo ve gestionar informes, 
+					si usu=active && usu=staff puede ver todo el menu (aunque no tenga permisos para realizar todas las tareas)
+					-->
+					{% if user.is_staff %}
+                      <li class="dropdown" id="Proveedor">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{%trans 'Administrar Proveedores' %}<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/admin/almar/proveedor">{%trans "Administrar Libros" %}</a></li>
+                                    <li class="divider"></li>
+                                    <li class="nav-header">{%trans "Acciones" %}</li>
+                                    <li><a href="/admin/almar/proveedor/add">{%trans "anadir proveedor" %}</a></li>
+                                </ul>
+                      </li>
+                      <li class="dropdown" id="Autores">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{%trans "Administrar autores" %}<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/admin/biblio/autor/">{%trans "Administrar autores" %}</a></li>
+                                    <li class="divider"></li>
+                                    <li class="nav-header">{%trans "Acciones" %}</li>
+                                    <li><a href="/admin/biblio/autor/add/">{%trans "Anadir autor" %}</a></li>
+                                </ul>
+                      </li>
+                      <li class="dropdown" id="Prestamos">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{%trans "Administrar prestamos" %}<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/admin/biblio/prestamo/">{%trans "administrar prestamos" %}</a></li>
+                                    <li class="divider"></li>
+                                    <li class="nav-header">{%trans "acciones" %}</li>
+                                    <li><a href="/admin/biblio/prestamo/add/">{%trans "Anadir prestamo" %}</a></li>
+                                </ul>
+                      </li>
+                      <li class="dropdown" id="admin-user">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{%trans "Administrar usuarios" %} <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/admin/auth/user/">{%trans "Administrar usuarios" %}</a></li>
+                                    <li class="divider"></li>
+                                    <li class="nav-header">{%trans "Acciones" %}</li>
+                                    <li><a href="/admin/auth/user/add/">{%trans "Anadir usuario" %}</a></li>
+                                    {% if user.is_active and user.is_staff %}
+                                        {% if user.has_usable_password %}
+                                        <li><a href="{% url 'admin:password_change' %}">{% trans 'Cambiar contrasena' %}</a></li>
+                                        {% endif %}
+                                    {% endif %}
+                                </ul>
+                      </li>
+                      {% endif %}
+                      {% if user.is_staff %}
+                      <li class="dropdown" id="admin-user">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {%trans "Management" %} <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                	<li class="divider"></li>
+                                    <li class="nav-header">{%trans "Actions" %}</li>
+                                    <li><a href="{% url 'libros' %}">{%trans "Libros" %}</a></li>
+                                    <li><a href="{% url 'autores' %}">{%trans "Autores" %}</a></li>
+                                </ul>
+                      </li>
+					  {% endif %}
+                    
+			      </ul>
+				  {% endif %}  
+			                           {% block header %}        
+                 
+            {% endblock %}
+             
+		      </div> <!-- End nav-collapse collapse -->
+			
+		   </div> <!-- End container -->
+      </div> <!-- End navbar-inner -->
+	</nav>
+  </header>
+  <!-- End Header -->	
+  
+  <!-- Content -->
+  <section class="container_section">
+	{% block contento %}{% endblock %}
+  </section>
+  <!-- End Content -->
+  
+  <!-- Footer -->
+  <footer class="modal-footer footer">
+	  <hr/>
+	  
+		<p>{%trans "Administracion Biblioteca Marta &copy;2013" %}</p>
+   </footer>
+  <!-- End Footer -->
+  
+  
+  
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{% static "js/vendor/jquery-1.10.1.min.js" %}"><\/script>')</script>
+
+        <script src="{% static "js/vendor/bootstrap.min.js" %}"></script>
+
+        <script src="{% static "js/plugins.js" %}"></script>
+        <script src="{% static "js/main.js" %}"></script>
+
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src='//www.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+
+    
+</body>
+</html>

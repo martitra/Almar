@@ -1,0 +1,183 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/*añadido por Jose*/
+
+html, body, header, footer{
+	background-color:#cfe7dc;
+}
+
+
+html, body, header, footer, div{
+#	border:solid 1px blue;
+}
+
+html{
+	margin:auto;
+	margin-top:50px;
+	max-width: 1200px;
+	min-width:920px;
+	background-color:#cfe7dc;
+}
+
+/*altura, color, bordes... header*/
+nav#navigation{
+    height: 150px;
+	margin-bottom:0px;
+}
+
+
+.navbar-inner{
+#	margin-left:144px;
+	height:145px;
+}
+
+header{
+	#background-image: url("../img/logo-footer.png");
+	background-color: #ACD6C3;
+	border-radius:4px;
+	border: solid 2px #00AA59;
+}
+.logo{
+	float:left;
+}
+
+header li{
+	list-style:none !important;
+}
+
+/*titulo*/
+.container_>a{
+	font-size:+30px !important;	
+	margin-top:2% !important;
+	padding-left:40px !important;
+}
+
+/*posicionamiento sesion usuario y eleccion idioma*/
+#user-tools{
+	position:relative !important; 
+	float:right;
+}
+.lang{
+	clear:right;
+	float:right !important;
+	padding-right:8px;
+}
+
+.lang form{
+	display:inline;
+}
+
+/*posicionado menu opciones*/
+.nav{
+#	border:solid 1px red;
+	width: 100%;
+	min-width:920px !important;
+	padding:0px;
+	margin:0px;
+	margin-top:5px !important;
+	margin-left:-10px !important;
+}
+
+/*ancho dropdown menu cabecera*/
+.dropdown{
+	width:auto;
+}
+.container_section{
+	background-image: url("../img/bg-light.png");
+	background-position: top center;
+	background-repeat:no-repeat;
+	background-color:#cfe7dc !important;
+}
+
+/*fondo y padding en creacion soldador, obra, medida*/
+
+.container_section form{
+	background-color:#FFFFFF;
+	padding:8px 12px;
+}
+.container_section {
+	margin:0px;
+	padding: 10px;
+}
+
+hero-unit{
+	margin-top:40px !important;
+}
+
+.table-responsive{
+	background-color: white;
+}
+/*asignar tamaño a los botones del index*/
+.row a{
+	width: 80%;
+	text-align:left;
+}
+
+/* Footer style */
+.footer{
+    text-align: center;
+    #background: rgb(27, 27, 27);
+	background-color: #ACD6C3;
+	border-radius:4px;
+}
+
+.footer p{
+    color: #5B80B2;
+}
+
+footer hr{
+	height:2px;
+	background-color: #00AA59;
+}
+
+/* Massive data input form style */
+form.massive_data_input{
+	background-color:white;
+    margin: 20px 20px;
+	max-width:1150px !important;
+}
+
+form.massive_data_input table{
+    background: #E6E6E6;
+	max-width:1150px !important;
+}
+
+form.massive_data_input table td{
+    background: #E6E6E6;
+	max-width:80px !important;
+}
+
+form.massive_data_input table select{
+	max-width:100% !important;
+}
+
+ form.massive_data_input table input{
+	max-width:95% !important;
+}
+
+form.massive_data_input table th label{
+    font-weight:bold !important;
+}
+
+/* Admin menu */
+div#user-tools span{
+    color: #5B80B2;
+}
+
+#login-form{
+    width: 256px; 
+    height: 90%;
+    margin: 0 auto;
+}
+
+/*espacio entre botones de accion en los formularios*/
+.btn-large{
+	margin:10px 10px 10px 0px;
+}
+
+
+

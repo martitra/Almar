@@ -1,0 +1,10 @@
+{% extends "SGC/base.html" %}
+{% load i18n %}
+{% block title %} - 500 {% endblock %}
+
+{% block contento %}
+  <h1>{% trans "Sorry our server fell asleep, we make every effort for waking. A little patience." %} </h1>
+  <p>
+  	<img src='http://127.0.0.1:90/static/img/leono.jpg'>
+  </p>
+{% endblock %}
