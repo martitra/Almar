@@ -7,7 +7,6 @@ Created on 10/02/2015
 from django.db import models
 from django.forms import ModelForm
 from datetime import datetime
-from django.template.defaultfilters import default
 
 class Proveedor(models.Model):
     cif = models.CharField("CIF", max_length=9)

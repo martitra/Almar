@@ -74,7 +74,7 @@ class Proveedorview(generic.ListView):
 #@login_required
 #def PrestamoConfirm(request, id):
 #    instance = get_object_or_404(Libro, pk=id)
-   #prestamo = Prestamo.objects.
+#    prestamo = Prestamo.objects.
 #    form = LibroForm(request.POST or None, instance=instance)
 #     if form.is_valid():
 #         contact = form.save()

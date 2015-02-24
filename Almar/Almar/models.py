@@ -30,7 +30,7 @@ class Proveedor(models.Model):
     provincia = models.CharField(max_length=40)
     ciudad = models.CharField(max_length=40)
     direccion = models.CharField(max_length=40)
-    cp = models.CharField(max_length=5)
+    cp = models.CharField("Codigo Postal", max_length=5)
     
     def __str__(self):
         return self.nombre

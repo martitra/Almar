@@ -35,17 +35,17 @@
             <!-- Example row of columns -->
             <div class="row">
                 <div class="span3">
-                    <h2>{% trans "Libros" %}</h2>
-                    <p><a class="btn" href={% url 'libros' %}>{% trans "Todos los libros &raquo;" %}</a></p>
+                    <h2>{% trans "Proveedor" %}</h2>
+                    <p><a class="btn" href={% url 'proveedores' %}>{% trans "Todos los proveedores &raquo;" %}</a></p>
                 </div>
                 <div class="span3">
                     <h2>{% trans "Autores" %}</h2>
-                    <p><a class="btn" href={% url 'autores' %}>{% trans "Todos los autores &raquo;" %}</a></p>
+                    <!--<p><a class="btn" href={% url 'proveedores' %}>{% trans "Todos los autores &raquo;" %}</a></p>-->
                 </div>
             {% if user.is_authenticated %}
          	<div class="span3">
                     <h2>{% trans "Mis prestamos" %}</h2>
-                    <p><a class="btn" href={% url 'prestamos' %}>{% trans "Todos mis prestamos &raquo;" %}</a></p>
+                    <!--<p><a class="btn" href={% url 'proveedores' %}>{% trans "Todos mis prestamos &raquo;" %}</a></p>-->
                 </div>
             </div>
             {% endif %}

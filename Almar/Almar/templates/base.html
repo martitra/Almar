@@ -90,10 +90,10 @@
                       <li class="dropdown" id="Proveedor">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">{%trans 'Administrar Proveedores' %}<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="/admin/almar/proveedor">{%trans "Administrar Libros" %}</a></li>
+                                    <li><a href="/admin/Almar/proveedor">{%trans "Administrar Libros" %}</a></li>
                                     <li class="divider"></li>
                                     <li class="nav-header">{%trans "Acciones" %}</li>
-                                    <li><a href="/admin/almar/proveedor/add">{%trans "anadir proveedor" %}</a></li>
+                                    <li><a href="/admin/Almar/proveedor/add">{%trans "anadir proveedor" %}</a></li>
                                 </ul>
                       </li>
                       <li class="dropdown" id="Autores">
@@ -135,8 +135,8 @@
                                 <ul class="dropdown-menu">
                                 	<li class="divider"></li>
                                     <li class="nav-header">{%trans "Actions" %}</li>
-                                    <li><a href="{% url 'libros' %}">{%trans "Libros" %}</a></li>
-                                    <li><a href="{% url 'autores' %}">{%trans "Autores" %}</a></li>
+                                    <li><a href="{% url 'proveedores' %}">{%trans "Libros" %}</a></li>
+                                    <li><a href="{% url 'proveedores' %}">{%trans "Autores" %}</a></li>
                                 </ul>
                       </li>
 					  {% endif %}
