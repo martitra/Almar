@@ -42,28 +42,21 @@ class Proveedorview(generic.ListView):
     template_name= 'proveedor/proveedores.html'
        
     def get_queryset(self):
-        """ Return 50 first libros."""
+        """ Return 50 first proveedores."""
         return Proveedor.objects.order_by('-nombre')[:50]
     
-#class libroDetalle(generic.DetailView):
-#    model = Libro
-#    template_name = 'libros/LibroDetalle.html'
-#    context_object_name = 'libro'
-#    
-#    def get_context_data(self, **kwargs):
-#        # Call the base implementation first to get a context
-#        context = super(libroDetalle, self).get_context_data(**kwargs)
-#        libros = self.get_object()
-#        # Add in a QuerySet of all the books
-#        context['prestamo_list'] = Prestamo.objects.filter(libro=libros.id)
-#        return context
+class ProveedorDetalle(generic.DetailView):
+    model = Proveedor
+    template_name = 'provedor/ProveedorDetalle.html'
+    #context_object_name = 'proveedor'
 
-#class autorview(generic.ListView):
-#   template_name='autores/autores.html'
-#    
-#    def get_queryset(self):
-#        """ Return 50 first autores."""
-#        return Autor.objects.order_by('-nombre')[:50]
+
+class Articuloview(generic.ListView):
+    template_name='articulo/articulos.html'
+    
+    def get_queryset(self):
+        """ Return 50 first articulos."""
+        return Articulo.objects.order_by('-nombre')[:50]
 
 
 #class autorDetalle(generic.DetailView):

@@ -12,8 +12,11 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.HomeView.as_view(), name='home'),
-    url(r'^proveedores$', views.Proveedorview.as_view(), name='proveedores'),
     url(r'^login/$', login, name='login'),
     url(r'^logout/$', logout, {'next_page': '/'}, name='logout'),
+    url(r'^proveedores$', views.Proveedorview.as_view(), name='proveedores'),
+    url(r'^proveedor/detalle/(?P<pk>\d+)/$', views.ProveedorDetalle.as_view(), name='proveedordetalle'),
+    url(r'^articulos', views.Articuloview.as_view(), name='articulos'),
+
     
 )

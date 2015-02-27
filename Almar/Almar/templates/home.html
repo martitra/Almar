@@ -3,34 +3,49 @@
 {% block title %} - Inicio {% endblock %}
 
 {% block contento %}
-	{% if user.is_staff %}
+	{% if user.is_staff %}<!-- admin -->
         <div class="container">
             <!-- Example row of columns -->
             <div class="row">
                 <div class="span3">
-                    <h2>{% trans "Libros" %}</h2>
-                    <p><a class="btn" href="admin/biblio/libro">{% trans "Administrar libros &raquo;" %}</a></p>
-                    <p><a class="btn" href="admin/biblio/libro/add">{% trans "Anadir libro &raquo;" %}</a></p>
+                    <h2>{% trans "Proveedores" %}</h2>
+                    <p><a class="btn" href="admin/Almar/proveedor">{% trans "Administrar proveedor &raquo;" %}</a></p>
+                    <p><a class="btn" href="admin/Almar/proveedor/add">{% trans "Anadir proveedor &raquo;" %}</a></p>
                 </div>
                 <div class="span3">
-                    <h2>{% trans "Autores" %}</h2>
-                    <p><a class="btn" href="admin/biblio/autor/">{% trans "Administrar autores &raquo;" %}</a></p>
-                    <p><a class="btn" href="admin/biblio/autor/add/">{% trans "Anadir autor &raquo;" %}</a></p>
+                    <h2>{% trans "Articulos" %}</h2>
+                    <p><a class="btn" href="admin/Almar/articulo/">{% trans "Administrar articulo &raquo;" %}</a></p>
+                    <p><a class="btn" href="admin/Almar/articulo/add/">{% trans "Anadir articulo &raquo;" %}</a></p>
                </div>
                 <div class="span3">
-                    <h2>{% trans "Prestamos" %}</h2>
-                    <p><a class="btn" href="admin/biblio/prestamo/">{% trans "Administrar prestamo &raquo;" %}</a></p>
-                    <p><a class="btn" href="admin/biblio/prestamo/add/">{% trans "Anadir prestamo &raquo;" %}</a></p>
+                    <h2>{% trans "Empleados" %}</h2>
+                    <p><a class="btn" href="admin/Almar/empleado/">{% trans "Administrar empleado &raquo;" %}</a></p>
+                    <p><a class="btn" href="admin/Almar/empleado/add/">{% trans "Anadir empleado &raquo;" %}</a></p>
                 </div>
                 <div class="span3">
                     <h2>{% trans "Usuarios" %}</h2>
                     <p><a class="btn" href="/admin/auth/user/">{% trans "Administrar usuarios &raquo;" %}</a></p>
                     <p><a class="btn" href="admin/auth/user/add/">{% trans "Anadir usuario &raquo;" %}</a></p>
                 </div>
+                <div class="span3">
+                    <h2>{% trans "Clientes" %}</h2>
+                    <p><a class="btn" href="admin/Almar/cliente/">{% trans "Administrar cliente &raquo;" %}</a></p>
+                    <p><a class="btn" href="admin/Almar/cliente/add/">{% trans "Anadir cliente &raquo;" %}</a></p>
+                </div>
+                <div class="span3">
+                    <h2>{% trans "Pedidos" %}</h2>
+                    <p><a class="btn" href="admin/Almar/pedido/">{% trans "Administrar pedido &raquo;" %}</a></p>
+                    <p><a class="btn" href="admin/Almar/pedido/add/">{% trans "Anadir pedido &raquo;" %}</a></p>
+                </div>
+                <div class="span3">
+                    <h2>{% trans "Categorias" %}</h2>
+                    <p><a class="btn" href="admin/Almar/categoria/">{% trans "Administrar categoria &raquo;" %}</a></p>
+                    <p><a class="btn" href="admin/Almar/categoria/add/">{% trans "Anadir categoria &raquo;" %}</a></p>
+                </div>
             </div>
          </div>
 	{% endif %}
-	{% if not user.is_staff %}
+	{% if not user.is_staff %}<!-- no Admin -->
 		<div class="container">
             <!-- Example row of columns -->
             <div class="row">
@@ -39,13 +54,25 @@
                     <p><a class="btn" href={% url 'proveedores' %}>{% trans "Todos los proveedores &raquo;" %}</a></p>
                 </div>
                 <div class="span3">
-                    <h2>{% trans "Autores" %}</h2>
-                    <!--<p><a class="btn" href={% url 'proveedores' %}>{% trans "Todos los autores &raquo;" %}</a></p>-->
+                    <h2>{% trans "Articulo" %}</h2>
+                    <p><a class="btn" href={% url 'articulos' %}>{% trans "Todos los articulos &raquo;" %}</a></p>
                 </div>
-            {% if user.is_authenticated %}
+                <div class="span3">
+                    <h2>{% trans "cliente" %}</h2>
+                    <p><a class="btn" href={% url 'proveedores' %}>{% trans "Todos los clientes &raquo;" %}</a></p>
+                </div>
+                <div class="span3">
+                    <h2>{% trans "Pedido" %}</h2>
+                    <p><a class="btn" href={% url 'proveedores' %}>{% trans "Todos los pedidos &raquo;" %}</a></p>
+                </div>
+                <div class="span3">
+                    <h2>{% trans "Categoria" %}</h2>
+                    <p><a class="btn" href={% url 'proveedores' %}>{% trans "Todos los categorias &raquo;" %}</a></p>
+                </div>
+            {% if user.is_authenticated %}<!-- ventas de cada empleado -->
          	<div class="span3">
-                    <h2>{% trans "Mis prestamos" %}</h2>
-                    <!--<p><a class="btn" href={% url 'proveedores' %}>{% trans "Todos mis prestamos &raquo;" %}</a></p>-->
+                    <h2>{% trans "Mis ventas" %}</h2>
+                    <p><a class="btn" href={% url 'proveedores' %}>{% trans "Todos mis prestamos &raquo;" %}</a></p>
                 </div>
             </div>
             {% endif %}

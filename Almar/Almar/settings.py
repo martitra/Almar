@@ -40,6 +40,10 @@ INSTALLED_APPS = (
     'Almar'
 )
 
+LOGIN_REDIRECT_URL = 'home'
+LOGIN_URL = '/login/'
+LOGOUT_URL = '/logout/'
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
