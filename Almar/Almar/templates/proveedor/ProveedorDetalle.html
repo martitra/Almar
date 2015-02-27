@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %} {% trans "proveedor" %}  {{ proveedor.nombre }} {% endblock %}
+
+{% block contento %}
+
+<div class="hero-unit">
+       
+	{% if proveedor %}	<ul>
+	    <li id="cif">{% trans "CIF: " %} {{ proveedor.cif }}</li>
+	    <li>{% trans "Nombre: " %} {{ proveedor.nombre }}</li>
+	    <li>{% trans "Telefono: " %}{{ proveedor.telefono }}</li>
+        <li>{% trans "Email: " %} {{ proveedor.email }}</li>
+        <li>{% trans "Provincia: " %} {{ proveedor.provincia }}</li>
+        <li>{% trans "Ciudad: " %} {{ proveedor.ciudad }}</li>
+        <li>{% trans "Direccion: " %}{{ proveedor.direccion }}</li>
+        <li>{% trans "Codigo Postal: " %} {{ proveedor.cp }}</li>
+	</ul>
+	
+	<a href="{% url 'proveedores' %}"><button class="btn btn-primary btn-large">{% trans "Atras" %}</button></a>
+
+	{% else %}
+	    <h1>{% trans "No hay proveedores disponibles." %}</h1>
+	{% endif %}
+</div>
+{% endblock contento %}

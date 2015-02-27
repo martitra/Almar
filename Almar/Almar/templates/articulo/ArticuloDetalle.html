@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %} {% trans "Articulos" %}  {{ articulo.nombre }} {% endblock %}
+
+{% block contento %}
+
+<div class="hero-unit">
+       
+	{% if articulo %}	<ul>
+	    <li id="cif">{% trans "Categoria: " %} {{ articulo.id_categoria }}</li>
+	    <li>{% trans "Proveedor: " %} {{ articulo.id_proveedor }}</li>
+	    <li>{% trans "Codigo de Fabricante: " %}{{ articulo.cod_fabricante }}</li>
+        <li>{% trans "Stock: " %} {{ articulo.stock }}</li>
+        <li>{% trans "Nombre: " %} {{ articulo.nombre }}</li>
+        <li>{% trans "Precio: " %} {{ articulo.precio }}</li>
+        <li>{% trans "Descipcion: " %}{{ articulo.descripcion }}</li>
+	</ul>
+	
+	<a href="{% url 'articulos' %}"><button class="btn btn-primary btn-large">{% trans "Atras" %}</button></a>
+
+	{% else %}
+	    <h1>{% trans "No hay articulos disponibles." %}</h1>
+	{% endif %}
+</div>
+{% endblock contento %}

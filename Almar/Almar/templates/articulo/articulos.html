@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %} {% trans "Articulos" %}  {% endblock %}
+
+{% block contento %}
+
+{% if articulo_list %}
+
+	<div class="table-responsive">
+		<table class="table">
+			<tr>
+				<th class="col-md-1">{% trans "Categoria" %}</th>
+				<th class="col-md-1">{% trans "Proveedor" %}</th>
+				<th class="col-md-1">{% trans "Codigo de Fabricante" %}</th>
+				<th class="col-md-1">{% trans "Stock" %}</th>
+				<th class="col-md-1">{% trans "Nombre" %}</th>
+				<th class="col-md-1">{% trans "Precio" %}</th>
+				<th class="col-md-1">{% trans "Descipcion" %}</th>
+			</tr>
+
+	    {% for articulo in articulo_list %}
+			<tr>
+		        <td class="col-md-1"><a href="{% url 'articulodetalle' articulo.id %}">{{ articulo.nombre }}</a></td>
+		        <td class="col-md-1">{{ articulo.id_categoria }}</td>
+		        <td class="col-md-1">{{ articulo.id_proveedor }}</td>
+		        <td class="col-md-1">{{ articulo.cod_fabricante }}</td>
+		        <td class="col-md-1">{{ articulo.stock }}</td>
+		        <td class="col-md-1">{{ articulo.precio }}</td>
+		        <td class="col-md-1">{{ articulo.descripcion }}</td>
+		        
+			</tr>		  
+    {% endfor %}
+    	</table>
+    		        
+    </div>
+{% else %}
+    <p>{% trans "No hay articulos disponibles." %}</p>
+{% endif %}
+
+{% endblock contento %}
