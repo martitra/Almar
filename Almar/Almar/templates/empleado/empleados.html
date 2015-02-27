@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %} {% trans "Clientes" %}  {% endblock %}
+
+{% block contento %}
+
+{% if empleado_list %}
+
+	<div class="table-responsive">
+		<table class="table">
+			<tr>
+				<th class="col-md-1">{% trans "Nombre" %}</th>
+				<th class="col-md-1">{% trans "Apelldios" %}</th>
+				<th class="col-md-1">{% trans "Nif" %}</th>
+				<th class="col-md-1">{% trans "Telefono" %}</th>
+				<th class="col-md-1">{% trans "Email" %}</th>
+				<th class="col-md-1">{% trans "Direccion" %}</th>
+				<th class="col-md-1">{% trans "Ciudad" %}</th>
+				<th class="col-md-1">{% trans "Provincia" %}</th>
+				<th class="col-md-1">{% trans "Codigo Postal" %}</th>
+			</tr>
+
+	    {% for empleado in empleado_list %}
+			<tr>
+		        <td class="col-md-1"><a href="{% url 'clientedetalle' cliente.id_cliente %}">{{ cliente.nombre }}</a></td>
+		        <td class="col-md-1">{{ cliente.apelldios }}</td>
+		        <td class="col-md-1">{{ cliente.nif }}</td>
+		        <td class="col-md-1">{{ cliente.telefono }}</td>
+		        <td class="col-md-1">{{ cliente.email }}</td>
+		        <td class="col-md-1">{{ cliente.direccion }}</td>
+		        <td class="col-md-1">{{ cliente.ciudad }}</td>
+		        <td class="col-md-1">{{ cliente.provincia }}</td>
+		        <td class="col-md-1">{{ cliente.cp }}</td>
+		        
+			</tr>		  
+    {% endfor %}
+    	</table>
+    		        
+    </div>
+{% else %}
+    <p>{% trans "No hay clientes disponibles." %}</p>
+{% endif %}
+
+{% endblock contento %}

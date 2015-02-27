@@ -12,7 +12,7 @@ from __future__ import unicode_literals
 from django.db import models
 
 class Categoria(models.Model):
-    id_categoria = models.IntegerField(primary_key=True)  # AutoField?
+    id_categoria = models.AutoField(primary_key=True)  # AutoField?
     nombre = models.CharField(max_length=20)
     def __str__(self):
         return self.nombre

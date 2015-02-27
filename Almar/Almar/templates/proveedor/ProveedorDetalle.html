@@ -7,8 +7,8 @@
 <div class="hero-unit">
        
 	{% if proveedor %}	<ul>
-	    <li id="cif">{% trans "CIF: " %} {{ proveedor.cif }}</li>
-	    <li>{% trans "Nombre: " %} {{ proveedor.nombre }}</li>
+	    <li>{% trans "CIF: " %} {{ proveedor.cif }}</li>
+	    <li id="nombre">{% trans "Nombre: " %} {{ proveedor.nombre }}</li>
 	    <li>{% trans "Telefono: " %}{{ proveedor.telefono }}</li>
         <li>{% trans "Email: " %} {{ proveedor.email }}</li>
         <li>{% trans "Provincia: " %} {{ proveedor.provincia }}</li>

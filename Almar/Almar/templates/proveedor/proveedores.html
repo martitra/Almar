@@ -9,8 +9,8 @@
 	<div class="table-responsive">
 		<table class="table">
 			<tr>
-				<th class="col-md-1">{% trans "CIF" %}</th>
 				<th class="col-md-1">{% trans "Nombre" %}</th>
+				<th class="col-md-1">{% trans "CIF" %}</th>
 				<th class="col-md-1">{% trans "Telefono" %}</th>
 				<th class="col-md-1">{% trans "Email" %}</th>
 				<th class="col-md-1">{% trans "Provincia" %}</th>
@@ -23,7 +23,6 @@
 			<tr>
 		        <td class="col-md-1"><a href="{% url 'proveedordetalle' proveedores.id %}">{{ proveedor.nombre }}</a></td>
 		        <td class="col-md-1">{{ proveedor.cif }}</td>
-		        <td class="col-md-1">{{ proveedor.nombre }}</td>
 		        <td class="col-md-1">{{ proveedor.telefono }}</td>
 		        <td class="col-md-1">{{ proveedor.email }}</td>
 		        <td class="col-md-1">{{ proveedor.provincia }}</td>

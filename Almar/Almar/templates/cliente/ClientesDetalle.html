@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %} {% trans "Cliente" %}  {{ cliente.nombre }} {% endblock %}
+
+{% block contento %}
+
+<div class="hero-unit">
+       
+	{% if cliente %}	<ul>
+		<li id="nombre">{% trans "Nombre: " %} {{ cliente.nombre }}</li>
+	    <li>{% trans "Apellidos: " %} {{ cliente.apelldios }}</li>
+	    <li>{% trans "NIF: " %}{{ cliente.nif }}</li>
+        <li>{% trans "Telefono: " %} {{ cliente.telefono }}</li>
+        <li>{% trans "Email: " %} {{ cliente.email }}</li>
+        <li>{% trans "Direccion: " %} {{ cliente.direccion }}</li>
+        <li>{% trans "Ciudad: " %}{{ cliente.ciudad }}</li>
+        <li>{% trans "Provincia: " %} {{ cliente.provincia }}</li>
+        <li>{% trans "Codigo Postal: " %} {{ cliente.cp }}</li>
+	</ul>
+	
+	<a href="{% url 'clientes' %}"><button class="btn btn-primary btn-large">{% trans "Atras" %}</button></a>
+
+	{% else %}
+	    <h1>{% trans "No hay clientes disponibles." %}</h1>
+	{% endif %}
+</div>
+{% endblock contento %}

@@ -48,7 +48,6 @@ class Proveedorview(generic.ListView):
 class ProveedorDetalle(generic.DetailView):
     model = Proveedor
     template_name = 'provedor/ProveedorDetalle.html'
-    #context_object_name = 'proveedor'
 
 
 class Articuloview(generic.ListView):
@@ -57,7 +56,21 @@ class Articuloview(generic.ListView):
     def get_queryset(self):
         """ Return 50 first articulos."""
         return Articulo.objects.order_by('-nombre')[:50]
+    
+class ArticuloDetalle(generic.DetailView):
+    model = Articulo
+    template_name = 'articulo/ArticuloDetalle.html'
 
+class Clienteview(generic.ListView):
+    template_name='cliente/clientes.html'
+    
+    def get_queryset(self):
+        """ Return 50 first articulos."""
+        return Articulo.objects.order_by('-nombre')[:50]
+    
+class ClienteDetalle(generic.DetailView):
+    model = Articulo
+    template_name = 'cliente/ClienteDetalle.html'
 
 #class autorDetalle(generic.DetailView):
 #    model = Autor

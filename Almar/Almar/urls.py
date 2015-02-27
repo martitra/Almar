@@ -17,6 +17,8 @@ urlpatterns = patterns('',
     url(r'^proveedores$', views.Proveedorview.as_view(), name='proveedores'),
     url(r'^proveedor/detalle/(?P<pk>\d+)/$', views.ProveedorDetalle.as_view(), name='proveedordetalle'),
     url(r'^articulos', views.Articuloview.as_view(), name='articulos'),
-
+    url(r'^articulo/detalle/(?P<pk>\d+)/$', views.ArticuloDetalle.as_view(),  name = 'articulodetalle'),
+    url(r'^clientes', views.Clienteview.as_view(), name='clientes'),
+    url(r'^clientes/detalle/(?P<pk>\d+)/$', views.ClienteDetalle.as_view(),  name = 'clientedetalle'),
     
 )

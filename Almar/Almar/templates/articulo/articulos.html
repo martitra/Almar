@@ -20,7 +20,7 @@
 
 	    {% for articulo in articulo_list %}
 			<tr>
-		        <td class="col-md-1"><a href="{% url 'articulodetalle' articulo.id %}">{{ articulo.nombre }}</a></td>
+		        <td class="col-md-1"><a href="{% url 'articulodetalle' articulo.id_articulo %}">{{ articulo.nombre }}</a></td>
 		        <td class="col-md-1">{{ articulo.id_categoria }}</td>
 		        <td class="col-md-1">{{ articulo.id_proveedor }}</td>
 		        <td class="col-md-1">{{ articulo.cod_fabricante }}</td>
