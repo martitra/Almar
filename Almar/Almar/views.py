@@ -66,11 +66,18 @@ class Clienteview(generic.ListView):
     
     def get_queryset(self):
         """ Return 50 first articulos."""
-        return Articulo.objects.order_by('-nombre')[:50]
+        return Cliente.objects.order_by('-nombre')[:50]
     
 class ClienteDetalle(generic.DetailView):
-    model = Articulo
+    model = Cliente
     template_name = 'cliente/ClienteDetalle.html'
+
+class Categoriaview(generic.ListView):
+    template_name='categoria/categorias.html'
+    
+    def get_queryset(self):
+        """ Return 50 first categorias."""
+        return Categoria.objects.order_by('-nombre')[:50]
 
 #class autorDetalle(generic.DetailView):
 #    model = Autor

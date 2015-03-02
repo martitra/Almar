@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %} {% trans "Categorias" %}  {% endblock %}
+
+{% block contento %}
+
+{% if categoria_list %}
+
+	<div class="table-responsive">
+		<table class="table">
+			<tr>
+				<th class="col-md-1">{% trans "Nombre" %}</th>
+			</tr>
+
+	    {% for categoria in categoria_list %}
+			<tr>
+		        <td class="col-md-1"><a href="{% url 'articulodetalle' categoria.id_categoria %}">{{ categoira.nombre }}</a></td>
+		        
+			</tr>		  
+    {% endfor %}
+    	</table>
+    		        
+    </div>
+{% else %}
+    <p>{% trans "No hay categorias disponibles." %}</p>
+{% endif %}
+
+{% endblock contento %}

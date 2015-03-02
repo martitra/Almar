@@ -20,5 +20,6 @@ urlpatterns = patterns('',
     url(r'^articulo/detalle/(?P<pk>\d+)/$', views.ArticuloDetalle.as_view(),  name = 'articulodetalle'),
     url(r'^clientes', views.Clienteview.as_view(), name='clientes'),
     url(r'^clientes/detalle/(?P<pk>\d+)/$', views.ClienteDetalle.as_view(),  name = 'clientedetalle'),
+    url(r'^categorias', views.Categoriaview.as_view(), name='categoria'),
     
 )
