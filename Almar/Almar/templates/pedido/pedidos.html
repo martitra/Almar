@@ -19,7 +19,7 @@
 
 	    {% for pedido in pedido_list %}
 			<tr>
-		        <td class="col-md-1"><a href="{% url 'pedidocliente' pedido.id_cliente %}">{{ pedido.cliente }}</a></td>
+		        <td class="col-md-1"><a href="{% url 'pedidocliente' pedido.id_cliente %}">{{ pedido.id_cliente }}</a></td>
 		        <td class="col-md-1">{{ pedido.empleado }}</td>
 		        <td class="col-md-1">{{ pedido.forma_pago }}</td>
 		        <td class="col-md-1">{{ pedido.fecha }}</td>
