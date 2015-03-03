@@ -17,9 +17,12 @@ urlpatterns = patterns('',
     url(r'^proveedores$', views.Proveedorview.as_view(), name='proveedores'),
     url(r'^proveedor/detalle/(?P<pk>\d+)/$', views.ProveedorDetalle.as_view(), name='proveedordetalle'),
     url(r'^articulos', views.Articuloview.as_view(), name='articulos'),
+    url(r'^articulos/cat/(?P<pk>\d+)/$', views.ArticuloCat.as_view(), name='articuloscat'),
     url(r'^articulo/detalle/(?P<pk>\d+)/$', views.ArticuloDetalle.as_view(),  name = 'articulodetalle'),
     url(r'^clientes', views.Clienteview.as_view(), name='clientes'),
     url(r'^clientes/detalle/(?P<pk>\d+)/$', views.ClienteDetalle.as_view(),  name = 'clientedetalle'),
-    url(r'^categorias', views.Categoriaview.as_view(), name='categoria'),
+    url(r'^categorias', views.Categoriaview.as_view(), name='categorias'),
+    url(r'^pedidos', views.Pedidoview.as_view(), name='pedidos'),
+    url(r'^pedidos/detalle/(?P<pk>\d+)/$', views.PedidoLineaview.as_view(),  name = 'pedidodetalle'),
     
 )

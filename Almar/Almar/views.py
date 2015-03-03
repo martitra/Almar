@@ -47,7 +47,7 @@ class Proveedorview(generic.ListView):
     
 class ProveedorDetalle(generic.DetailView):
     model = Proveedor
-    template_name = 'provedor/ProveedorDetalle.html'
+    template_name = 'proveedor/ProveedorDetalle.html'
 
 
 class Articuloview(generic.ListView):
@@ -60,6 +60,11 @@ class Articuloview(generic.ListView):
 class ArticuloDetalle(generic.DetailView):
     model = Articulo
     template_name = 'articulo/ArticuloDetalle.html'
+    
+class ArticuloCat(generic.ListView):#non sei se ira
+    template = 'articulo/articulos.html'
+    def get_queryset(self):
+        return Articulo.objects.filter(ArticuloCat = self.object.pk)
 
 class Clienteview(generic.ListView):
     template_name='cliente/clientes.html'
@@ -78,6 +83,16 @@ class Categoriaview(generic.ListView):
     def get_queryset(self):
         """ Return 50 first categorias."""
         return Categoria.objects.order_by('-nombre')[:50]
+    
+class Pedidoview(generic.ListView):
+    template_name= 'pedido/pedidos.html'
+       
+    def get_queryset(self):
+        """ Return 50 first pedidos."""
+        return Pedido.objects.order_by('-id_pedido')[:50]
+class PedidoLineaview(generic.DetailView):
+    model = Pedido, Lineas_Pedido
+    template_name = 'pedido/PedidoDetalle.html'
 
 #class autorDetalle(generic.DetailView):
 #    model = Autor

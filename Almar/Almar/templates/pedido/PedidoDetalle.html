@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %} {% trans "pedido" %}  {{ pedido.id_pedido }} {% endblock %}
+
+{% block contento %}
+
+<div class="hero-unit">
+       
+	{% if proveedor %}	<ul>
+	    <li id="pedido">{% trans "Pedido: " %} {{ lineas_pedido.id_pedido }}</li>
+	    <li>{% trans "Articulo: " %}{{ lineas_pedido.id_articulo }}</li>
+        <li>{% trans "Numero de Articulos: " %} {{ lineas_pedido.num_articulos }}</li>
+        <li>{% trans "Fecha: " %} {{ pedido.fecha }}</li>
+        <li>{% trans "Empleado: " %} {{ pedido.empleado }}</li>
+        <li>{% trans "Foramd de Pago: " %}{{ pedido.forma_pago }}</li>
+        <li>{% trans "Presupuesto: " %} {{ pedido.presupuesto }}</li>
+        <li>{% trans "Pagado: " %} {{ pedido.pagado }}</li>
+	</ul>
+	
+	<a href="{% url 'proveedores' %}"><button class="btn btn-primary btn-large">{% trans "Atras" %}</button></a>
+
+	{% else %}
+	    <h1>{% trans "No hay pedidos disponibles." %}</h1>
+	{% endif %}
+</div>
+{% endblock contento %}

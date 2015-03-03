@@ -21,7 +21,7 @@
 
 	    {% for proveedor in proveedor_list %}
 			<tr>
-		        <td class="col-md-1"><a href="{% url 'proveedordetalle' proveedores.id %}">{{ proveedor.nombre }}</a></td>
+		        <td class="col-md-1"><a href="{% url 'proveedordetalle' proveedor.id_proveedor %}">{{ proveedor.nombre }}</a></td>
 		        <td class="col-md-1">{{ proveedor.cif }}</td>
 		        <td class="col-md-1">{{ proveedor.telefono }}</td>
 		        <td class="col-md-1">{{ proveedor.email }}</td>
@@ -33,7 +33,7 @@
 			</tr>		  
     {% endfor %}
     	</table>
-    		        
+    		 <a href="{% url 'home' %}"><button class="btn btn-primary btn-large">{% trans "Atras" %}</button></a>       
     </div>
 {% else %}
     <p>{% trans "No hay proveedores disponibles." %}</p>

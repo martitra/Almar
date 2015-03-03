@@ -14,12 +14,12 @@
 
 	    {% for categoria in categoria_list %}
 			<tr>
-		        <td class="col-md-1"><a href="{% url 'articulodetalle' categoria.id_categoria %}">{{ categoira.nombre }}</a></td>
+		        <td class="col-md-1"><a href="{% url 'articuloscat' categoria.id_categoria %}">{{ categoria.nombre }}</a></td>
 		        
 			</tr>		  
     {% endfor %}
     	</table>
-    		        
+    		     <a href="{% url 'home' %}"><button class="btn btn-primary btn-large">{% trans "Atras" %}</button></a>      
     </div>
 {% else %}
     <p>{% trans "No hay categorias disponibles." %}</p>

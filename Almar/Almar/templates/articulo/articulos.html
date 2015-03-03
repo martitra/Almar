@@ -9,11 +9,11 @@
 	<div class="table-responsive">
 		<table class="table">
 			<tr>
+				<th class="col-md-1">{% trans "Nombre" %}</th>
 				<th class="col-md-1">{% trans "Categoria" %}</th>
 				<th class="col-md-1">{% trans "Proveedor" %}</th>
 				<th class="col-md-1">{% trans "Codigo de Fabricante" %}</th>
 				<th class="col-md-1">{% trans "Stock" %}</th>
-				<th class="col-md-1">{% trans "Nombre" %}</th>
 				<th class="col-md-1">{% trans "Precio" %}</th>
 				<th class="col-md-1">{% trans "Descipcion" %}</th>
 			</tr>
@@ -31,7 +31,7 @@
 			</tr>		  
     {% endfor %}
     	</table>
-    		        
+    		  <a href="{% url 'home' %}"><button class="btn btn-primary btn-large">{% trans "Atras" %}</button></a>         
     </div>
 {% else %}
     <p>{% trans "No hay articulos disponibles." %}</p>

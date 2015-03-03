@@ -35,7 +35,7 @@
 			</tr>		  
     {% endfor %}
     	</table>
-    		        
+    		 <a href="{% url 'home' %}"><button class="btn btn-primary btn-large">{% trans "Atras" %}</button></a>          
     </div>
 {% else %}
     <p>{% trans "No hay clientes disponibles." %}</p>
