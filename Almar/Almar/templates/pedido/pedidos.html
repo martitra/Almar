@@ -14,23 +14,25 @@
 				<th class="col-md-1">{% trans "Forma de Pago" %}</th>
 				<th class="col-md-1">{% trans "Fecha" %}</th>
 				<th class="col-md-1">{% trans "Presupuesto" %}</th>
-				<th class="col-md-1">{% trans "pagado" %}</th>
+				<th class="col-md-1">{% trans "Pagado" %}</th>
+				<th class="col-md-1">{% trans "Detalle" %}</th>
+				
 			</tr>
 
 	    {% for pedido in pedido_list %}
 			<tr>
-		        <td class="col-md-1"><a href="{% url 'pedidocliente' pedido.id_cliente %}">{{ pedido.id_cliente }}</a></td>
+		        <td class="col-md-1">{{ pedido.id_cliente }}</a></td>
 		        <td class="col-md-1">{{ pedido.empleado }}</td>
 		        <td class="col-md-1">{{ pedido.forma_pago }}</td>
 		        <td class="col-md-1">{{ pedido.fecha }}</td>
 		        <td class="col-md-1">{{ pedido.presupuesto }}</td>
 		        <td class="col-md-1">{{ pedido.pagado }}</td>
+		        <td class="col-md-1"><a href="{% url 'pedidodetalle' pedido.id_pedido %}"><button class="btn btn-primary btn-large">{% trans "Detalle" %}</button></a></td>
 		        
 			</tr>		  
     {% endfor %}
     	</table>
     		 <a href="{% url 'home' %}"><button class="btn btn-primary btn-large">{% trans "Atras" %}</button></a>   
-    		 <a href="{% url 'pedidodetalle' %}"><button class="btn btn-primary btn-large">{% trans "Detalle" %}</button></a>     
     </div>
 {% else %}
     <p>{% trans "No hay pedidos disponibles." %}</p>

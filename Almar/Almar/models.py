@@ -118,7 +118,7 @@ class Pedido(models.Model):
     pagado = models.IntegerField()
 
     def __str__(self):
-        return self.id_pedido+" - "+self.id_cliente
+        return self.id_pedido
 
     class Meta:
         managed = True
@@ -141,13 +141,13 @@ class Lineas_Pedido(models.Model):
     id_pedido = models.ForeignKey(Pedido, db_column='id_pedido')
     id_articulo = models.ForeignKey(Articulo, db_column='id_articulo')
     num_articulos = models.IntegerField()
-
     def __str__(self):
-        return self.id_linea+" - "+self.id_pedido+" - "+self.id_articulo
+        return self.id_linea
 
     class Meta:
         managed = True
         db_table = 'lineas_pedido'
+        unique_together = ("id_linea","id_pedido")
 
 class AuthGroup(models.Model):
     id = models.IntegerField(primary_key=True)  # AutoField?

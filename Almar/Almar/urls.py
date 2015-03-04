@@ -24,7 +24,7 @@ urlpatterns = patterns('',
     url(r'^categorias', views.Categoriaview.as_view(), name='categorias'),
     url(r'^pedidos', views.Pedidoview.as_view(), name='pedidos'),
     url(r'^pedidos/detalle/(?P<pk>\d+)/$', views.PedidoLineaview.as_view(),  name = 'pedidodetalle'),
-    url(r'^pedidos/detalle/(?P<pk>\d+)/$', views.PedidoClienteview.as_view(),  name = 'pedidocliente'), 
+    url(r'^clientes/detalle/(?P<pk>\d+)/$', views.PedidoClienteview.as_view(),  name = 'pedidocliente'), 
     
     
 )

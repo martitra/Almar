@@ -97,7 +97,8 @@ class PedidoLineaview(generic.DetailView):
 class PedidoClienteview(generic.ListView):
     template_name = 'cliente/clientes'
     def get_queryset(self):
-        #return Cliente.objects.filter(Cliente.id_cliente = self.object.pk)
+        cli = Cliente.nombre
+        return Cliente.objects.filter(cli = self.object.pk)
     
 
 #class autorDetalle(generic.DetailView):
