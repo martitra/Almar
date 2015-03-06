@@ -27,6 +27,10 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTHENTICATION_BACKENDS = ('Almar.backends.SettingsBackend','django.contrib.auth.backends.ModelBackend')
+
+CONTEXT_PROCESSORS = ('django.core.context_processors.csrf')
+
 
 # Application definition
 

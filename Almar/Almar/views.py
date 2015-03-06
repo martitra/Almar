@@ -7,8 +7,10 @@ Created on 11/02/2015
 from django.views import generic
 from django.shortcuts import render
 from Almar.models import *
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
-
+#@login_required
 class HomeView(generic.base.TemplateView):
     """
         General project index view (home)
@@ -19,7 +21,7 @@ class HomeView(generic.base.TemplateView):
         context = super(HomeView, self).get_context_data(**kwargs)
         return context
 
-    #@method_decorator(login_required) permitir acceso anonimo, no necesario ser usuario logueado
+    @method_decorator(login_required)#permitir acceso anonimo, no necesario ser usuario logueado
     def dispatch(self, *args, **kwargs):
         return super(HomeView, self).dispatch(*args, **kwargs)
 # End HomeView

@@ -127,9 +127,31 @@ class Pedido(models.Model):
 class Usuario(models.Model):
     id_usuario = models.AutoField(primary_key=True)  # AutoField?
     id_empleado = models.ForeignKey(Empleado, db_column='id_empleado')
+    #id_empleado = models.ForeignKey(User)
     nombre = models.CharField(max_length=45)
     password = models.CharField(max_length=45)
     admin = models.BooleanField(default = False)
+    
+#     def save(self, *args, **kwargs):
+#         fields = kwargs.pop('update_fields', [])
+#         if fields != ['last_login']:
+#             return super(Usuario, self).save(*args, **kwargs)
+# 
+#     def is_authenticated(self):
+#         return True
+# 
+    def is_active(self):
+        return True
+# 
+#     def is_anonymous(self):
+#         return False
+# 
+#     def get_id(self):
+#         return unicode(self.id_usuario)
+# 
+#     def __repr__(self):
+#         return self.nombre
+#     
     def __str__(self):
         return self.nombre
     class Meta:

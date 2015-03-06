@@ -45,7 +45,7 @@
             </div>
          </div>
 	{% endif %}
-	{% if not user.is_staff %}<!-- no Admin -->
+	{% if not user.is_authenticated %}<!-- Empleado -->
 		<div class="container">
             <!-- Example row of columns -->
             <div class="row">
@@ -69,13 +69,13 @@
                     <h2>{% trans "Categoria" %}</h2>
                     <p><a class="btn" href={% url 'categorias' %}>{% trans "Todos los categorias &raquo;" %}</a></p>
                 </div>
-            {% if user.is_authenticated %}<!-- ventas de cada empleado -->
+            <!--{% if user.is_authenticated %} ventas de cada empleado -->
          	<div class="span3">
                     <h2>{% trans "Mis ventas" %}</h2>
                     <p><a class="btn" href={% url 'proveedores' %}>{% trans "Todos mis prestamos &raquo;" %}</a></p>
                 </div>
             </div>
-            {% endif %}
+            <!--{% endif %}-->
          </div>
 	{% endif %}
 {% endblock contento %}
