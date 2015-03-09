@@ -11,6 +11,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+
 class Categoria(models.Model):
     id_categoria = models.AutoField(primary_key=True)  # AutoField?
     nombre = models.CharField(max_length=20)
@@ -140,8 +141,8 @@ class Usuario(models.Model):
 #     def is_authenticated(self):
 #         return True
 # 
-    def is_active(self):
-        return True
+#    def is_active(self):
+#        return True
 # 
 #     def is_anonymous(self):
 #         return False

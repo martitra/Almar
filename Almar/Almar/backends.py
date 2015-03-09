@@ -20,17 +20,25 @@ class SettingsBackend(object):
 
         try:
             user = Usuario.objects.get(nombre = username)
+            if user.check_password(password):
             #user_pass = Usuario.objects.get(password = password)
-            return user
-        except Usuario.DoesNotExist:
-            user = User(username=username, password=password)
-            user.is_staff = True
+            #if password == username[::-1]:
+            #if user.check_password(password):
+                return user
+            else:
+                return None
+            
+        except User.DoesNotExist:
+            
+            user = User(username=username, password=password, email=None)
+            user.is_staff = False
             user.is_superuser = False
             user.save()
+            #return None
             
-        return None
+        #return None
     def get_user(self, user_id):
         try:
             return Usuario.objects.get(pk=user_id)
-        except Usuario.DoesNotExist:
+        except User.DoesNotExist:
             return None

@@ -86,7 +86,7 @@
 					Filtrado del menu segun el perfil de cada usuario, si usu=active solo ve gestionar informes, 
 					si usu=active && usu=staff puede ver todo el menu (aunque no tenga permisos para realizar todas las tareas)
 					-->
-					{% if user.is_staff %}
+					<!--{% if user.is_staff %}-->
                       <li class="dropdown" id="Proveedor">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">{%trans 'Administrar Proveedores' %}<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
@@ -128,8 +128,8 @@
                                     {% endif %}
                                 </ul>
                       </li>
-                      {% endif %}
-                      {% if user.is_staff %}
+                      <!--{% endif %}
+                      {% if user.is_staff %}-->
                       <li class="dropdown" id="admin-user">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {%trans "Management" %} <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
@@ -139,7 +139,7 @@
                                     <li><a href="{% url 'proveedores' %}">{%trans "Autores" %}</a></li>
                                 </ul>
                       </li>
-					  {% endif %}
+					 <!-- {% endif %}-->
                     
 			      </ul>
 				  {% endif %}  
