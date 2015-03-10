@@ -6,8 +6,8 @@
 
 <div class="hero-unit">
        
-	{% if proveedor %}	<ul>
-	    <li id="pedido">{% trans "Pedido: " %} {{ lineas_pedido.id_pedido }}</li>
+	{% if pedido %}	<ul>
+	    <li id="pedido">{% trans "Pedido: " %} {{ pedido.id_pedido }}</li>
 	    <li>{% trans "Articulo: " %}{{ lineas_pedido.id_articulo }}</li>
         <li>{% trans "Numero de Articulos: " %} {{ lineas_pedido.num_articulos }}</li>
         <li>{% trans "Fecha: " %} {{ pedido.fecha }}</li>
@@ -17,7 +17,7 @@
         <li>{% trans "Pagado: " %} {{ pedido.pagado }}</li>
 	</ul>
 	
-	<a href="{% url 'proveedores' %}"><button class="btn btn-primary btn-large">{% trans "Atras" %}</button></a>
+	<a href="{% url 'pedidos' %}"><button class="btn btn-primary btn-large">{% trans "Atras" %}</button></a>
 
 	{% else %}
 	    <h1>{% trans "No hay pedidos disponibles." %}</h1>

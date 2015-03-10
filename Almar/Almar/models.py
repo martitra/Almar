@@ -118,7 +118,7 @@ class Pedido(models.Model):
     presupuesto = models.IntegerField()
     pagado = models.IntegerField()
 
-    def __str__(self):
+    def __repr__(self):
         return self.id_pedido
 
     class Meta:
@@ -141,8 +141,8 @@ class Usuario(models.Model):
 #     def is_authenticated(self):
 #         return True
 # 
-#    def is_active(self):
-#        return True
+    def is_active(self):
+        return True
 # 
 #     def is_anonymous(self):
 #         return False

@@ -23,7 +23,7 @@ urlpatterns = patterns('',
     url(r'^clientes/detalle/(?P<pk>\d+)/$', views.ClienteDetalle.as_view(),  name = 'clientedetalle'),
     url(r'^categorias', views.Categoriaview.as_view(), name='categorias'),
     url(r'^pedidos', views.Pedidoview.as_view(), name='pedidos'),
-    url(r'^pedidos/detalle/(?P<pk>\d+)/$', views.PedidoLineaview.as_view(),  name = 'pedidodetalle'),
+    url(r'^pedido/detalle/(?P<pk>\d+)/$', views.PedidoLineaview.as_view(),  name = 'pedidodetalle'),
     url(r'^clientes/detalle/(?P<pk>\d+)/$', views.PedidoClienteview.as_view(),  name = 'pedidocliente'), 
     
     

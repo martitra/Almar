@@ -92,9 +92,10 @@ class Pedidoview(generic.ListView):
     def get_queryset(self):
         """ Return 50 first pedidos."""
         return Pedido.objects.order_by('-id_pedido')[:50]
+    
 class PedidoLineaview(generic.DetailView):
-    model = Pedido, Lineas_Pedido
-    template_name = 'pedido/PedidoDetalle.html'
+    model = Pedido
+    template_name = 'pedido/PedidoDetalle.html'    
     
 class PedidoClienteview(generic.ListView):
     template_name = 'cliente/clientes'
