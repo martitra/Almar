@@ -7,8 +7,10 @@ Created on 11/02/2015
 from django.views import generic
 from django.shortcuts import render
 from Almar.models import *
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.http import HttpResponseRedirect
 
 #@login_required
 class HomeView(generic.base.TemplateView):
@@ -93,15 +95,30 @@ class Pedidoview(generic.ListView):
         """ Return 50 first pedidos."""
         return Pedido.objects.order_by('-id_pedido')[:50]
     
-class PedidoLineaview(generic.DetailView):
-    model = Pedido
-    template_name = 'pedido/PedidoDetalle.html'    
+class LineaPedidoLineaview(generic.DetailView):
+    model = Lineas_Pedido
+    template_name = 'pedido/LineasPedidoDetalle.html'  
+    def get_object(self, queryset=None):
+        lineas =  Lineas_Pedido.objects.get(id_pedido = self.kwargs['pk'])
+        if lineas==None:
+            return HttpResponseRedirect('pedidos')
+        else:
+            return lineas          
+        
     
 class PedidoClienteview(generic.ListView):
     template_name = 'cliente/clientes'
     def get_queryset(self):
         cli = Cliente.nombre
         return Cliente.objects.filter(cli = self.object.pk)
+    
+class misVentas(generic.ListView):
+    template_name = 'ventas/mis_ventas.html'
+    
+    def get_queryset(self):
+        if self.request.user:
+            user = Usuario.objects.get(nombre=self.request.user)
+            return Pedido.objects.filter(empleado=user.id_empleado)
     
 
 #class autorDetalle(generic.DetailView):

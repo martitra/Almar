@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %} {% trans "Mis Ventas" %}  {% endblock %}
+
+{% block contento %}
+<h2>Ventas</h2>
+{% if pedido_list %}
+	<div class="table-responsive">
+		<table class="table">
+			<tr>
+				<th class="col-md-1">{% trans "Cliente" %}</th>
+				<th class="col-md-1">{% trans "Empleado" %}</th>
+				<th class="col-md-1">{% trans "Forma de Pago" %}</th>
+				<th class="col-md-1">{% trans "Fecha" %}</th>
+				<th class="col-md-1">{% trans "Presupuesto" %}</th>
+				<th class="col-md-1">{% trans "Pagado" %}</th>
+				<th class="col-md-1">{% trans "Detalle" %}</th>
+			</tr>
+
+	    {% for pedido in pedido_list %}
+			<tr>
+		        <td class="col-md-1">{{ pedido.id_cliente }}</a></td>
+		        <td class="col-md-1">{{ pedido.empleado }}</td>
+		        <td class="col-md-1">{{ pedido.forma_pago }}</td>
+		        <td class="col-md-1">{{ pedido.fecha }}</td>
+		        <td class="col-md-1">{{ pedido.presupuesto }}</td>
+		        <td class="col-md-1">{{ pedido.pagado }}</td>
+		        
+			</tr>		  
+    	{% endfor %}
+    	</table>
+    		 <a href="{% url 'home' %}"><button class="btn btn-primary btn-large">{% trans "Atras" %}</button></a>
+    </div>
+{% else %}
+    <p>{% trans "No tienes ventas." %}</p>
+{% endif %}
+
+{% endblock contento %}
